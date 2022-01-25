@@ -94,7 +94,7 @@ class _BodyState extends State<Body> {
                             Flexible(
                               flex: 5,
                               child:
-                                  gv.AllProds['Shoes'].contains(widget.product)
+                                  gv.AllProds['shoes'].contains(widget.product)
                                       ? Row(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,

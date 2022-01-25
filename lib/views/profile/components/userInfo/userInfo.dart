@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import '../../../../utils/constants.dart';
 import '../../../../view_models/globalVariables_viewModel.dart';
 import '../../../../utils/size_config.dart';
@@ -15,7 +14,6 @@ import 'package:progress_state_button/progress_button.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-
 import '../../profile_screen.dart';
 
 class UserInfoScreen extends StatefulWidget {
@@ -36,7 +34,6 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
   String _selectedGov;
   String _address;
   String _img;
-
   String url;
 
   final List<String> _errors = [];
