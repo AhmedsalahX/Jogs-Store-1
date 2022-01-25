@@ -24,8 +24,6 @@ class _SignFormState extends State<SignInScreen> {
   var currentUser = FirebaseAuth.instance.currentUser;
 
   bool isLogged = false;
-  
-
 
   final _formKey = GlobalKey<FormState>();
   String _email;
@@ -35,7 +33,6 @@ class _SignFormState extends State<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     // @override
     // void initState() {
     //   super.initState();
@@ -87,7 +84,8 @@ class _SignFormState extends State<SignInScreen> {
                 Text(
                   "Sign in with your email and password \nto enter the fashion world",
                   style: TextStyle(
-                      fontFamily: 'PantonBoldItalic', color: SecondaryColorDark),
+                      fontFamily: 'PantonBoldItalic',
+                      color: SecondaryColorDark),
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: getProportionateScreenWidth(60)),
@@ -143,31 +141,6 @@ class _SignFormState extends State<SignInScreen> {
                       FormError(errors: _errors),
                       SizedBox(height: SizeConfig.screenHeight * 0.02),
                       buildTextWithIcon(),
-                      // SizedBox(height: SizeConfig.screenHeight * 0.03),
-                      // Divider(
-                      //   thickness: 2,
-                      //   endIndent: getProportionateScreenWidth(40),
-                      //   indent: getProportionateScreenWidth(40),
-                      //   color: SecondaryColor.withOpacity(0.25),
-                      // ),
-                      // SizedBox(height: SizeConfig.screenHeight * 0.03),
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.center,
-                      //   children: [
-                      //     SocialCard(
-                      //       icon: "assets/icons/google-icon.svg",
-                      //       press: () {},
-                      //     ),
-                      //     SocialCard(
-                      //       icon: "assets/icons/apple-logo.svg",
-                      //       press: () {},
-                      //     ),
-                      //     SocialCard(
-                      //       icon: "assets/icons/facebook-2.svg",
-                      //       press: () {},
-                      //     ),
-                      //   ],
-                      // ),
                     ],
                   ),
                 ),
@@ -189,17 +162,14 @@ class _SignFormState extends State<SignInScreen> {
         if (_formKey.currentState.validate()) {
           _formKey.currentState.save();
           try {
-              UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-                email: _email,
-                password: _password
-              );
+            UserCredential userCredential = await FirebaseAuth.instance
+                .signInWithEmailAndPassword(email: _email, password: _password);
 
-              Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (context) => HomeScreen()),
-                (Route<dynamic> route) => false,
-              );
-
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => HomeScreen()),
+              (Route<dynamic> route) => false,
+            );
 
             // await context.read<auth_viewModel>().signOut();
             await context
